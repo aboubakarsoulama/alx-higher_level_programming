@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """Solves the N-queens puzzle.
 Determines all possible solutions to placing N
 N non-attacking queens on an NxN chessboard.
@@ -109,10 +108,10 @@ def recursive_solve(board, row, queens, solutions):
 
     for c in range(len(board)):
         if board[row][c] == " ":
-        tmp_board[row][c] = "Q"
+            tmp_board = board_deepcopy(board)
+            tmp_board[row][c] = "Q"
             xout(tmp_board, row, c)
-            solutions = recursive_solv      tmp_board = board_deepcopy(board)
-          e(tmp_board, row + 1,
+            solutions = recursive_solve(tmp_board, row + 1,
                                         queens + 1, solutions)
 
     return (solutions)
